@@ -1,0 +1,64 @@
+/* body {
+    background-color: #EDEDED;
+    color: #444444;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+} */
+
+body {
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+a{
+    color: inherit;
+}
+.center {
+    margin: auto;
+    width: 75%;
+    padding: 10px;
+    text-align:center
+}
+
+
+.home {
+    margin-top: 10%;
+}
+
+.highlight {
+    transition: transform .7s ease-in-out;
+}
+
+.highlight:hover {
+    color: #DA0037;
+    transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.fas{
+    transition: transform .7s ease-in-out;
+}
+
+.fas:hover {
+    color: #DA0037;
+    transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+
+}
+
+.fab {
+    transition: transform .7s ease-in-out;
+}
+
+.fab:hover {
+    color: #DA0037;
+    transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+
+}
+
+
+
+#btn:active {
+    color:red;
+}
+
+.zoom:hover {
+    transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}

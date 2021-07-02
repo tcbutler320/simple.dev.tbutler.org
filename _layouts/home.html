@@ -1,0 +1,88 @@
+---
+layout: default
+---
+<div class="home">
+    <div class="center">
+        <p class="animate__animated animate__fadeInUp">
+            <b>Tyler C Butler</b>
+            <br>
+            <i>Independent Security Researcher</i>
+            {% include words.html %}
+        </p>
+        <br>
+        <div id="home">
+            <div style="display:none;" id="socials" class="center">
+                <p class="animate__animated animate__fadeInUp">socials</p>
+                <a class="animate__animated animate__fadeInUp animate__delay-1s" href="http://twitter.com"><i class="fab fa-twitter"></i></a>
+                <a class="animate__animated animate__fadeInUp animate__delay-1s" href="http://twitter.com"><i class="fab fa-twitter"></i></a>
+                <a class="animate__animated animate__fadeInUp animate__delay-1s" href="http://twitter.com"><i class="fab fa-twitter"></i></a>
+                <a class="animate__animated animate__fadeInUp animate__delay-1s" href="http://twitter.com"><i class="fab fa-twitter"></i></a>
+
+            </div>
+            <div style="display:none;" id="awards" class="center">
+                <!-- <p class="animate__animated animate__fadeInUp">awards</p> -->
+                <a class="animate__animated animate__fadeInUp animate__delay-1s" href="https://www.motorolasolutions.com/en_us/about/security-vulnerability/hall-of-fame.html"> MotorolaSolution Bug Bounty Hall of Fame</a>
+            </div>
+            <div style="display:none;" id="bugs">
+                <!-- <p class="animate__animated animate__fadeInUp">Discovered Vulnerabilities</p> -->
+                <div style="text-align: left;" class="animate__animated animate__fadeInUp animate__delay-1s">
+                    {% for vuln in site.data.vulns %}
+                        {% for post in site.posts %}
+                            {% assign foo = post.content %}
+                                <button onclick="goToPost('{{foo}}');">goToPost</button>
+                                    <a href="{{vuln.Link}}">{{vuln.Title}}</a>
+                                        <span style="float: right;">{{vuln.Date}}</span>
+                                    <br>
+                                <br>
+                            {% endfor %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div style="display:none;" id="education" class="center">
+                <!-- <p class="animate__animated animate__fadeInUp">education</p> -->
+                <a class="animate__animated animate__fadeInUp animate__delay-1s">The Pennsylvania State University, BS Security and Risk Analysis, BA Criminology</a>
+                <br>
+                <a class="animate__animated animate__fadeInUp animate__delay-2s">eLearnSecurity Web Application Penetration Tester (eWPT) Certified</a>
+                <br>
+                <a class="animate__animated animate__fadeInUp animate__delay-3s">eLearnSecurity Junior Penetration Tester (eJPT) Certified
+                </a>
+            </div>
+            <div style="display:none;" id="contact" class="center">
+                <!-- <p class="animate__animated animate__fadeInUp">contact me</p> -->
+                <form name="contact" method="POST" data-netlify="true">
+                    <p>
+                    <label>name:  <input type="text" name="name" /></label>   
+                    </p>
+                    <p>
+                    <label>email:  <input type="email" name="email" /></label>
+                    </p>
+                    <p>
+                    <label>message:  <textarea name="message"></textarea></label>
+                    </p>
+                    <p>
+                    <button type="submit">Send</button>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>    
+</div>
+    
+{{ content }}
+
+<script>
+    function showElement(foo) {
+        var x = document.getElementById(foo);
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>
+
+<script>
+    function goToPost(foo){
+        document.getElementById('home').innerHTML= foo;
+    }
+</script>
