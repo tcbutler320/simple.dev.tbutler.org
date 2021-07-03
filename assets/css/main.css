@@ -5,13 +5,22 @@
 } */
 
 body {
-
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-a{
+.dark {
+    background-color: black;
+    color: white;
+}
+
+/* .muted {
+    color: #444444;
+} */
+
+a {
     color: inherit;
 }
+
 .center {
     margin: auto;
     width: 75%;
@@ -21,7 +30,7 @@ a{
 
 
 .home {
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
 .highlight {

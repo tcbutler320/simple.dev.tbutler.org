@@ -12,44 +12,57 @@ layout: default
         <br>
         <div id="home">
             <div style="display:none;" id="socials" class="center">
-                <p class="animate__animated animate__fadeInUp">socials</p>
-                <a class="animate__animated animate__fadeInUp animate__delay-1s" href="http://twitter.com"><i class="fab fa-twitter"></i></a>
-                <a class="animate__animated animate__fadeInUp animate__delay-1s" href="http://twitter.com"><i class="fab fa-twitter"></i></a>
-                <a class="animate__animated animate__fadeInUp animate__delay-1s" href="http://twitter.com"><i class="fab fa-twitter"></i></a>
-                <a class="animate__animated animate__fadeInUp animate__delay-1s" href="http://twitter.com"><i class="fab fa-twitter"></i></a>
+                <a class="animate__animated animate__fadeInUp animate__delay-1s" href="https://twitter.com/tbutler0x90"><i class="fab fa-lg fa-twitter"></i></a>
+                <a class="animate__animated animate__fadeInUp animate__delay-2s" href="https://github.com/tcbutler320"><i class="fab fa-lg fa-github"></i></a>
+                <a class="animate__animated animate__fadeInUp animate__delay-3s" href="https://www.linkedin.com/in/tyler-b-a700a1aa/"><i class="fab fa-lg fa-linkedin"></i></a>
 
             </div>
+           <!-- start awards section -->
             <div style="display:none;" id="awards" class="center">
                 <!-- <p class="animate__animated animate__fadeInUp">awards</p> -->
                 <a class="animate__animated animate__fadeInUp animate__delay-1s" href="https://www.motorolasolutions.com/en_us/about/security-vulnerability/hall-of-fame.html"> MotorolaSolution Bug Bounty Hall of Fame</a>
             </div>
+           <!-- end awards section -->
+
+            <!-- start bugs section -->
             <div style="display:none;" id="bugs">
                 <!-- <p class="animate__animated animate__fadeInUp">Discovered Vulnerabilities</p> -->
                 <div style="text-align: left;" class="animate__animated animate__fadeInUp animate__delay-1s">
                     {% for vuln in site.data.vulns %}
-                        {% for post in site.posts %}
-                            {% assign foo = post.content %}
-                                <button onclick="goToPost('{{foo}}');">goToPost</button>
-                                    <a href="{{vuln.Link}}">{{vuln.Title}}</a>
-                                        <span style="float: right;">{{vuln.Date}}</span>
-                                    <br>
-                                <br>
-                            {% endfor %}
+                        <div onclick="goToPost('{{vuln.id}}');">
+                            <a class="highlight">{{vuln.Title}}</a>
+                            <span style="float: right;">{{vuln.Date}}</span>
+                        </div>
+                        <br>
+                        <!-- start post section -->
+                        <div id="post">
+                            <span style="display: none;text-align: left;" id="{{vuln.id}}">
+                                {{ vuln.advisory  | markdownify }}
+                            </span>
+                        </div>
+                        <!-- end post section -->
                     {% endfor %}
                 </div>
             </div>
+            <!-- end bugs section -->
+
+            <!-- start education section -->
             <div style="display:none;" id="education" class="center">
-                <!-- <p class="animate__animated animate__fadeInUp">education</p> -->
                 <a class="animate__animated animate__fadeInUp animate__delay-1s">The Pennsylvania State University, BS Security and Risk Analysis, BA Criminology</a>
                 <br>
+                <br>
                 <a class="animate__animated animate__fadeInUp animate__delay-2s">eLearnSecurity Web Application Penetration Tester (eWPT) Certified</a>
+                <br>
                 <br>
                 <a class="animate__animated animate__fadeInUp animate__delay-3s">eLearnSecurity Junior Penetration Tester (eJPT) Certified
                 </a>
             </div>
+            <!-- end education section -->
+
+            <!-- start contact section -->
             <div style="display:none;" id="contact" class="center">
                 <!-- <p class="animate__animated animate__fadeInUp">contact me</p> -->
-                <form name="contact" method="POST" data-netlify="true">
+                <form name="contact" method="POST" data-netlify="true" class="animate__animated animate__fadeInUp animate__delay-1s">
                     <p>
                     <label>name:  <input type="text" name="name" /></label>   
                     </p>
@@ -64,6 +77,9 @@ layout: default
                     </p>
                 </form>
             </div>
+            <!-- end contact section -->
+
+
         </div>
     </div>    
 </div>
@@ -83,6 +99,19 @@ layout: default
 
 <script>
     function goToPost(foo){
-        document.getElementById('home').innerHTML= foo;
+        var x = document.getElementById(foo);
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+        document.getElementById('help').innerHTML = "click title to close"
+    }
+</script>
+
+
+<script>
+    function darkMode() {
+        document.body.classList.toggle('dark');
     }
 </script>
