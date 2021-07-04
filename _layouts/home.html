@@ -16,12 +16,100 @@ layout: default
                 <a class="animate__animated animate__fadeInUp animate__delay-2s" href="https://github.com/tcbutler320"><i class="fab fa-lg fa-github"></i></a>
                 <a class="animate__animated animate__fadeInUp animate__delay-3s" href="https://www.linkedin.com/in/tyler-b-a700a1aa/"><i class="fab fa-lg fa-linkedin"></i></a>
             </div>
-           <!-- start awards section -->
-            <div style="display:none;" id="awards" class="center">
-                <!-- <p class="animate__animated animate__fadeInUp">awards</p> -->
-                <a class="animate__animated animate__fadeInUp animate__delay-1s" href="https://www.motorolasolutions.com/en_us/about/security-vulnerability/hall-of-fame.html"> MotorolaSolution Bug Bounty Hall of Fame</a>
+            <!-- start resume section -->
+            <div style="display:none;" id="resume"  class="center animate__animated animate__fadeIn animate__delay-1s">
+                <!-- Work History --> 
+                <b>Work History</b>
+                <br>
+                <div style="text-align: left;">
+                    <div style="border-bottom: 3px dotted black;">
+                        <a>Deloitte, Government and Public Service</a>
+                        <span style="float: right;">August 2019 -->  May 2021</span>
+                    </div>
+                    <p>Penetration Tester</p>
+                    <ul>
+                        <li>Penetration Tester in Deloitte's Adversary Simulation market offering </li>
+                        <li>Operated Command and Control (C2) Infrastructure with Cobalt Strike and Covenant</li>
+                        <li>Managed phishing campaigns with GoPhish</li>
+                        <li>Conducted wireless network security audits</li>
+                    </ul>
+                    <p>Mainframe Application Developer</p>
+                    <ul>
+                        <li>Converted legacy IBM Mainframe Applications written in Cobol and Assembly into Java </li>
+                        <li>Involved in all aspects of DevOps lifecycle including operations, development, integration, testing, monitoring, and deployment</li>
+                        <li>Proficient with Java, Cobol, JCL, DB2, Batch Processing, and ISPF</li>
+                        <li>Lead training sessions for legacy developers on developing, deploying, testing, and troubleshooting converted batch programs</li>
+                    </ul>
+                </div>
+                <div style="text-align: left;">
+                    <div style="border-bottom: 3px dotted black;">
+                        <a>Hackerone</a>
+                        <span style="float: right;">April 2020 --> Present</span>
+                    </div>
+                    <p>Freelance Security Researcher</p>
+                    <ul>
+                        <li>Conducted freelance information security research on client web applications </li>
+                        <li>Disclosed a triaged high-severity vulnerability on Block</li>
+                    </ul>
+                </div>
+                <br>
+                <b>Vulnerability Research</b>
+                <br>
+                <div style="text-align: left;">
+                    <div style="border-bottom: 3px dotted black;">
+                        <a>Common Vulnerabilities and Exposures (CVE)</a>
+                    </div>
+                    <ul>
+                        <li>CVE-2021-35956 - AKCP sensorProbe - 'Multiple' Cross Site Scripting (XSS)	</li>
+                    </ul>
+                    <div style="border-bottom: 3px dotted black;">
+                        <a>HackerOne Bug Bounties</a>
+                    </div>
+                    <ul>
+                        <li>BlockFi - Undisclosed Vulnerability</li>
+                    </ul>
+                </div>
+                 <!-- start awards section -->
+                 <b>Awards and Recognition</b>
+                 <div style="text-align: left;">
+                    <div style="border-bottom: 3px dotted black;">
+                        <a><a  href="https://www.motorolasolutions.com/en_us/about/security-vulnerability/hall-of-fame.html"> MotorolaSolution Bug Bounty Hall of Fame</a></a>
+                        <span style="float: right;">June 2021</span>
+                    </div>
+                    <ul>
+                        <li> The Security Hall of Fame is where MotorolaSolutions publicly recognize the efforts of security researchers to contribute to the security of Motorola Solutions services and domains. This vulnearbility I submitted for this program has not been pubically announced yet, however it will recieve a CVE ID.</li>
+                    </ul>
+                </div>
+                <b>Education</b>
+                <br>
+                <div style="text-align: left;">
+                    <div style="border-bottom: 3px dotted black;">
+                        <a>The Pennsylvania State University</a>
+                        <span style="float: right;">Graduated 2018</span>
+                    </div>
+                    <ul>
+                        <li>Bachelors of Science: Security and Risk Analysis </li>
+                        <li>Bachelors of Arts: Criminology</li>
+                    </ul>
+                </div>
+                <br>
+                <div class="center">
+                    <b>Certifications</b>
+                </div>
+                <br>
+                <div style="text-align: left;">
+                    <div style="border-bottom: 3px dotted black;">
+                        <a>eLearnSecurity Web Application Penetration Tester (eWPT)</a>
+                        <span style="float: right;">March 2021</span>
+                    </div>
+                    <br>
+                    <div style="border-bottom: 3px dotted black;">
+                        <a>eLearnSecurity Junior Penetration Tester (eJPT) </a>
+                        <span style="float: right;">January 2020</span>
+                    </div>
+                </div>
             </div>
-           <!-- end awards section -->
+            <!-- end resume section -->
 
             <!-- start bugs section -->
             <div style="display:none;" id="bugs">
@@ -45,36 +133,32 @@ layout: default
             </div>
             <!-- end bugs section -->
 
+            <!-- start blog section -->
+            <div style="display:none;" id="blog">
+            <!-- <p class="animate__animated animate__fadeInUp">Discovered Vulnerabilities</p> -->
+                <div style="text-align: left;" class="animate__animated animate__fadeInUp animate__delay-1s">
+                    {% for post in site.posts %}
+                        <div style="border-bottom: 3px dotted black;" onclick="goToPost('{{vuln.id}}');">
+                            <a class="highlight-nz">{{post.title}}</a>
+                            <span style="float: right;">{{post.date}}</span>
+                        </div>
+                        <br>
+                        <!-- start post section -->
+                        <div id="blog-post">
+                            <span style="display: none;text-align: left;" id="{{post.id}}">
+                                <p>{{ post.content  | markdownify }}</p>
+                            </span>
+                        </div>
+                        <!-- end post section -->
+                    {% endfor %}
+                </div>
+             </div>
+        <!-- end blog section -->
+
             <!-- start about section -->
             <div style="display:none;" id="about" class="center">
                 <div style="text-align: left;">
                     <a class="animate__animated animate__fadeInUp animate__delay-1s" >I’m an independent security researcher with industry experience in penetration testing, cyber risk consulting, and software engineering. On my website I highlight recent vulnerability disclosures or proof of concept exploits, and blog about Capture the Flag competitions and Bug Bounty.</a>
-                </div>
-                <br>
-                <br>
-                <b class="animate__animated animate__fadeInUp animate__delay-2s">Education</b>
-                <br>
-                <br>
-                <div style="text-align: left;">
-                <div style="border-bottom: 3px dotted black;" class="animate__animated animate__fadeInUp animate__delay-3s">
-                    <a>The Pennsylvania State University, BS Security and Risk Analysis, BA Criminology</a>
-                    <span style="float: right;">Graduated 2018</span>
-                </div>
-                <br>
-                <br>
-                <div class="center">
-                    <b class="animate__animated animate__fadeInUp animate__delay-4s">Certifications</b>
-                </div>
-                <br>
-                <br>
-                <div style="border-bottom: 3px dotted black;" class="animate__animated animate__fadeInUp animate__delay-5s">
-                    <a>eLearnSecurity Web Application Penetration Tester (eWPT) Certified</a>
-                    <span style="float: right;">March 2021</span>
-                </div>
-                <br>
-                <div style="border-bottom: 3px dotted black;" class="animate__animated animate__fadeInUp animate__delay-5s">
-                    <a>eLearnSecurity Junior Penetration Tester (eJPT) Certified
-                    <span style="float: right;">January 2020</span>
                 </div>
             </div>
             <!-- end about section -->
@@ -99,8 +183,8 @@ layout: default
             </div>
             <!-- end contact section -->
 
+            </div>
 
-        </div>
     </div>    
 </div>
     

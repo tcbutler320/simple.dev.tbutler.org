@@ -32,17 +32,49 @@ a {
     color: inherit;
 }
 
-.center {
-    margin: auto;
-    width: 80%;
-    padding: 10px;
-    text-align:center
+
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 767px) {
+    /* body {
+        background-color: red;
+    } */
+
+    .center {
+        margin: auto;
+        width: 100%;
+        text-align:center;
+        padding: 5px;
+    }
+    
+    
+    .home {
+        margin-top: 5%;
+        width: 90%;
+    }
+    
+}
+
+@media only screen 
+and (min-device-width : 768px) {
+    /* body {
+        background-color: red;
+    } */
+
+    .center {
+        margin: auto;
+        width: 80%;
+        text-align:center
+    }
+    
+    
+    .home {
+        margin-top: 5%;
+    }
+    
 }
 
 
-.home {
-    margin-top: 5%;
-}
 
 .highlight {
     transition: transform .7s ease-in-out;
