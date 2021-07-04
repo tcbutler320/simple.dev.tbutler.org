@@ -158,7 +158,7 @@ layout: default
             <!-- start about section -->
             <div style="display:none;" id="about" class="center">
                 <div style="text-align: left;">
-                    <a class="animate__animated animate__fadeInUp animate__delay-1s" >I’m an independent security researcher with industry experience in penetration testing, cyber risk consulting, and software engineering. On my website I highlight recent vulnerability disclosures or proof of concept exploits, and blog about Capture the Flag competitions and Bug Bounty.</a>
+                    <a class="animate__animated animate__fadeInUp animate__delay-1s" >{{site.about}}</a>
                 </div>
             </div>
             <!-- end about section -->
@@ -193,10 +193,48 @@ layout: default
 <script>
     function showElement(foo) {
         var x = document.getElementById(foo);
+        var y = document.getElementById(foo+'-btn');
+
+        var about = document.getElementById('about');
+        var abouty = document.getElementById('about-btn');
+
+        var resume = document.getElementById('resume');
+        var resumey = document.getElementById('resume-btn');
+
+        var bugs = document.getElementById('bugs');
+        var bugsy = document.getElementById('bugs-btn');
+
+        var blog = document.getElementById('blog');
+        var blogy = document.getElementById('blog-btn');
+
+        var contact = document.getElementById('contact');
+        var contacty = document.getElementById('contact-btn');
+
+
+        about.style.display = "none";
+        resume.style.display = "none";
+        bugs.style.display = "none";
+        blog.style.display = "none";
+        contact.style.display = "none";
+
         if (x.style.display === "none") {
             x.style.display = "block";
+            abouty.style.color = "inherit";
+            resumey.style.color = "inherit";
+            bugsy.style.color = "inherit";
+            blogy.style.color = "inherit";
+            contacty.style.color = "inherit";
+            
+            y.style.color = "#DA0037";
         } else {
             x.style.display = "none";
+            abouty.style.color = "inherit";
+            resumey.style.color = "inherit";
+            bugsy.style.color = "inherit";
+            blogy.style.color = "inherit";
+            contacty.style.color = "inherit";
+
+            y.style.color = "inherit";
         }
     }
 </script>

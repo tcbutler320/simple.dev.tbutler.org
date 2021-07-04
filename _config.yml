@@ -34,22 +34,4 @@ theme: offshoot
 plugins:
   - jekyll-feed
 
-# Exclude from processing.
-# The following items will not be processed, by default.
-# Any item listed under the `exclude:` key here will be automatically added to
-# the internal "default list".
-#
-# Excluded items can be processed by explicitly listing the directories or
-# their entries' file path in the `include:` list.
-#
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+about: I’m an independent security researcher with industry experience in penetration testing, cyber risk consulting, and software engineering. In previous roles, I've served as a penetration tester focused on APT and insider threat simulations, as well as a stint in mainframe application development with java, cobol, and assembly languages. As an independent researcher, I am focused on iOT embedded device security. On my website, I share my disclosed vulnerabilities and proof of concept exploits, as well as blog about various security topics. If your interested in learning more about my research, feel free to reach out on twitter @tbutler0x90 or using the contact form above.
