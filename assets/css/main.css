@@ -52,6 +52,12 @@ and (max-device-width : 767px) {
         margin-top: 5%;
         width: 90%;
     }
+
+    .post {
+        width: 90%;
+        margin: auto;
+
+    }
     
 }
 
@@ -70,6 +76,11 @@ and (min-device-width : 768px) {
     
     .home {
         margin-top: 5%;
+    }
+
+    .post {
+        width: 60%;
+        margin: auto;
     }
     
 }

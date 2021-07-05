@@ -27,14 +27,22 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="manifest" href="/my.webmanifest">
   <meta name="theme-color" content="#FF00FF">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.4.1/dist/chart.min.js"></script>
 </head>
 
 <body>
   <!-- Content -->
   {{ content }}
-
   <script src="/assets/js/xy-polyfill.js" nomodule></script>
   <script src="/assets/js/script.js" type="module"></script>
+  <script>
+    window.addEventListener('load', (event) => {
+    var x = location.href;
+    var pathArray = x.split( '#' );
+    var foo = pathArray[1];
+    showElement(foo);
+  });
+  </script>
 </body>
 </html>
 
