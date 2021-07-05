@@ -1,4 +1,4 @@
-- Title: "CVE-2021-35956, AKCP sensorProbe - 'Multiple' Cross Site Scripting (XSS)"
+- Title: "[CVE-2021-35956] AKCP sensorProbe - 'Multiple' Cross Site Scripting (XSS)"
   Date: 06/2021
   CVE: "<a href='https://nvd.nist.gov/vuln/detail/CVE-2021-35956'>CVE-2021-35956</a>"
   Platform: "N/A"
@@ -8,7 +8,7 @@
   num: 0
   overview: In May 2021, I disclosed a stored cross-site scripting vulnerability to vendor AKCP in regards to the sensorProbe enviormental monitoring device
   Bounty: "N/A"
-  cve: N/A
+  cve: CVE-2021-35956
   vendor-advisory: https://www.akcp.com/support-center/customer-login/sensor-probe-firmware-changelog/
   severity: Medium
   CVE-AD: https://nvd.nist.gov/vuln/detail/CVE-2021-35956
@@ -34,6 +34,9 @@
   type: "0-Day"
   vuln: ""
   id: vuln2
+  Report: https://huntr.dev/bounties/1-other-Miodec/monkeytype/
+  Communication: https://huntr.dev/bounties/1-other-Miodec/monkeytype/
+  vendor-advisory: n/a
   advisory: >- 
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 

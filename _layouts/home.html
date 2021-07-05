@@ -8,6 +8,49 @@ layout: default
             <br>
             <i>Independent Security Researcher</i>
             {% include words.html %}
+   
+            <div style="display:block;" id="feature">
+                <small style="opacity: 0.7;" class="animate__animated animate__fadeInUp animate__delay-5s">Latest Research</small>
+                <br>
+                <br>
+                <!-- <p class="animate__animated animate__fadeInUp">Discovered Vulnerabilities</p> -->
+                <div style="text-align: left;" class="animate__animated animate__fadeInUp animate__delay-5s">
+                    {% for vuln in site.data.vulns limit:1 %}
+                        <div style="border-bottom: 3px dotted black;">
+                            <a class="highlight-nz">{{vuln.Title}}</a>
+                            <span style="float: right;">{{vuln.Date}}</span>
+                        </div>
+                        <br>
+                        <!-- start post section -->
+                        <div id="post" style="padding-left: 40px;">
+                                <span style="display: block;text-align: left;">
+                                    <div class="animate__animated animate__fadeInUp animate__delay-5s">
+                                    <small>
+                                        {% if vuln.Report %}
+                                        <a class="muted highlight" style="text-decoration:none;" href="{{vuln.Report}}"><i class="far fa-file-pdf"></i>  PDF Report</a> |
+                                        {% endif %}
+                                        {% if vuln.Communication %}
+                                        <a class="muted highlight"style="text-decoration:none;"  href="{{vuln.Communication}}"><i class="fas fa-link"></i>  Communication</a> |
+                                        {% endif %}
+                                        {% if vuln.vendor-advisory %}
+                                        <a class="muted highlight" style="text-decoration:none;" href="{{vuln.vendor-advisory}}"><i class="fas fa-link"></i>  Vendor Advisory </a> |
+                                        {% endif %}
+                                        {% if vuln.CVE-AD %}
+                                        <a class="muted highlight"  style="text-decoration:none;" href="{{vuln.CVE-AD}}"><i class="fas fa-shield-alt"></i>    CVE Details</a>
+                                        {% endif %}
+                                    </small>
+                                    <p><b>Overview:</b> {{vuln.overview}}</p>
+                                    <p><b>Details:</b> {{ vuln.advisory }}</p>
+                                    {% if vuln.cve%}
+                                    <p class="muted">{{vuln.cve}}</p>
+                                    {% endif %}
+                                </span>
+                             </div>
+                        </div>
+                        <!-- end post section -->
+                    {% endfor %}
+                </div>
+            </div>
         </p>
         <br>
         <div id="home">
@@ -115,63 +158,27 @@ layout: default
                         </div>
                         <br>
                         <!-- start post section -->
-                        <div id="post" style="padding-left: 20px;">
+                        <div id="post" style="padding-left: 40px;">
                             <span style="display: none;text-align: left;" id="{{vuln.id}}">
                                 <small>
                                     {% if vuln.Report %}
-                                    <a class="muted highlight" href="{{vuln.Report}}"><i class="far fa-file-pdf"></i>  PDF Report</a> |
+                                    <a class="muted highlight" style="text-decoration:none;" href="{{vuln.Report}}"><i class="far fa-file-pdf"></i>  PDF Report</a> |
                                     {% endif %}
                                     {% if vuln.Communication %}
-                                    <a class="muted highlight" href="{{vuln.Communication}}"><i class="fas fa-link"></i>  Communication</a> |
+                                    <a class="muted highlight"style="text-decoration:none;"  href="{{vuln.Communication}}"><i class="fas fa-link"></i>  Communication</a> |
                                     {% endif %}
                                     {% if vuln.vendor-advisory %}
-                                    <a class="muted highlight" href="{{vuln.vendor-advisory}}"><i class="fas fa-link"></i>  Vendor Advisory </a> |
+                                    <a class="muted highlight" style="text-decoration:none;" href="{{vuln.vendor-advisory}}"><i class="fas fa-link"></i>  Vendor Advisory </a> |
                                     {% endif %}
                                     {% if vuln.CVE-AD %}
-                                    <a class="muted highlight" href="{{vuln.CVE-AD}}"><i class="fas fa-shield-alt"></i>    CVE Details</a>
+                                    <a class="muted highlight"  style="text-decoration:none;" href="{{vuln.CVE-AD}}"><i class="fas fa-shield-alt"></i>    CVE Details</a>
                                     {% endif %}
                                 </small>
                                 <p><b>Overview:</b> {{vuln.overview}}</p>
                                 <p><b>Details:</b> {{ vuln.advisory }}</p>
-                                <canvas id="myChart" height="50"></canvas>
-                                <script>
-                                    var ctx = document.getElementById('myChart');
-                                    var myChart = new Chart(ctx, {
-                                        type: 'bar',
-                                        data: {
-                                            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                                            datasets: [{
-                                                label: '# of Votes',
-                                                data: [12, 19, 3, 5, 2, 3],
-                                                backgroundColor: [
-                                                    'rgba(255, 99, 132, 0.2)',
-                                                    'rgba(54, 162, 235, 0.2)',
-                                                    'rgba(255, 206, 86, 0.2)',
-                                                    'rgba(75, 192, 192, 0.2)',
-                                                    'rgba(153, 102, 255, 0.2)',
-                                                    'rgba(255, 159, 64, 0.2)'
-                                                ],
-                                                borderColor: [
-                                                    'rgba(255, 99, 132, 1)',
-                                                    'rgba(54, 162, 235, 1)',
-                                                    'rgba(255, 206, 86, 1)',
-                                                    'rgba(75, 192, 192, 1)',
-                                                    'rgba(153, 102, 255, 1)',
-                                                    'rgba(255, 159, 64, 1)'
-                                                ],
-                                                borderWidth: 1
-                                            }]
-                                        },
-                                        options: {
-                                            scales: {
-                                                y: {
-                                                    beginAtZero: true
-                                                }
-                                            }
-                                        }
-                                    });
-                                    </script>
-
+                                {% if vuln.cve%}
+                                <p class="muted">{{vuln.cve}}</p>
+                                {% endif %}
                             </span>
                         </div>
                         <!-- end post section -->
@@ -270,12 +277,17 @@ layout: default
         var contact = document.getElementById('contact');
         var contacty = document.getElementById('contact-btn');
 
+        var feature = document.getElementById('feature');
+        var featurey = document.getElementById('feature-btn');
+
+
 
         about.style.display = "none";
         resume.style.display = "none";
         bugs.style.display = "none";
         blog.style.display = "none";
         contact.style.display = "none";
+
 
         if (x.style.display === "none") {
             x.style.display = "block";
@@ -287,6 +299,7 @@ layout: default
             bugsy.style.color = "inherit";
             // blogy.style.color = "inherit";
             contacty.style.color = "inherit";
+            feature.style.display = "none";
 
             y.style.color = "#DA0037";
         } else {
