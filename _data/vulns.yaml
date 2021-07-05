@@ -15,6 +15,7 @@
   type: "0-Day"
   vuln: "XSS"
   id: vuln1
+  exploit-db: https://www.exploit-db.com/exploits/50080
   Communication: 
   advisory: >- 
     All sensorProbe devices prior to firmware version SP480-20210624 are vulnerable to authenticated stored cross-site scripting via the Sensor Description, Email, and System setting fields. 
@@ -35,12 +36,11 @@
   vuln: ""
   id: vuln2
   Report: https://huntr.dev/bounties/1-other-Miodec/monkeytype/
-  Communication: https://huntr.dev/bounties/1-other-Miodec/monkeytype/
-  vendor-advisory: n/a
+  vendor-advisory: https://huntr.dev/bounties/1-other-Miodec/monkeytype/
+  CVE-AD: false
+  overview: In May 2021, I disclosed an authenticated bypass in MonkeyType.com, a popular typing speed application.
   advisory: >- 
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-
+    MonkeyType.com prior to 15fc5bd is vulnerable to authenticated bypass in the leaderboard fields. Unauthenticated users can bypass security checks to insert arbitrary values into the leaderboards. Malicious users can abuse this vulnerability to put themselves in the top of the leaderboard with any score (wpm) they want.
 
 
 - Title: "MonkeyType.com - Stored Cross-Site Scripting (XSS) via Tribe Chat"
@@ -49,6 +49,8 @@
   Platform: GitHub
   Vendor: MonkeyType
   Link: "https://github.com/Miodec/monkeytype/issues/1476"
+  Report: "https://github.com/Miodec/monkeytype/issues/1476"
+  vendor-advisory: Link
   num: 0
   Bounty: "N/A"
   cve: N/A
@@ -56,9 +58,9 @@
   type: "0-Day"
   vuln: ""
   id: vuln3
+  overview: In May 2021, I disclosed a stored cross-site scripting vulnerability in the chat feature of MonkeyType.com, a popular typing speed application.
   advisory: >- 
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
+    Prior to the May 27th fix, the MonkeyType Tribe Chat feature at dev.monkeytype.com/tribe was vulnerable to stored cross-site scripting via user comment and user name fields. Malicious users could evade client-side input filtering by modying raw socket messages and injecting arbitrary javascript into comment or name fields.
 
 
 - Title: "PHP Timeclock 1.04 - 'Multiple' Cross Site Scripting (XSS)"
@@ -66,7 +68,9 @@
   CVE: N/A
   Platform: Exploit-DB
   Vendor: <a href="http://timeclock.sourceforge.net/">PHP Timeclock</a>
-  Link: https://www.exploit-db.com/exploits/49853
+  Link: https://tbutler.org/2021/05/13/php-timeclock-0-day-disclosure-copy
+  vendor-advisory: https://tbutler.org/2021/05/13/php-timeclock-0-day-disclosure-copy
+  exploit-db: https://www.exploit-db.com/exploits/49853
   num: 0
   Bounty: "N/A"
   cve: N/A
@@ -74,15 +78,17 @@
   type: "0-Day"
   vuln: XSS
   id: vuln4
+  overview: In May 2021, I disclosed a cross-site scripting vulnerability in PHP Timeclock 1.04.
   advisory: >- 
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    PHP Timeclock version 1.04 and prior is vulnerable to multiple cross site scripting vulnerabilities. PHP Timeclock 1.04 is vulnerable to unauthenticated reflected XSS; arbitrary javascript can be injected into the application by appending a termination /'> and payload directly to the end of the GET request URL. The vulnerable paths include (1) /login.php  (2) /timeclock.php (3) /reports/audit.php and (4) /reports/timerpt.php. Arbitrary javascript can be injected into the application in POST requests to (1) /reports/audit.php (2) /reports/total_hours.php (3) /reports/timerpt.php via the from_date and to_date parameters.
 
 - Title: "PHP Timeclock 1.04 - Time and Boolean Based Blind SQL Injection"
   Date: 05/2021
   CVE: N/A
   Platform: Exploit-DB
   Vendor: <a href="http://timeclock.sourceforge.net/">PHP Timeclock</a>
-  Link: https://www.exploit-db.com/exploits/49849
+  Link: https://tbutler.org/2021/05/13/php-timeclock-0-day-disclosure-copy
+  vendor-advisory: https://tbutler.org/2021/05/13/php-timeclock-0-day-disclosure-copy
   num: 0
   Bounty: "N/A"
   cve: N/A
@@ -90,15 +96,19 @@
   type: "0-Day"
   vuln: SQLi
   id: vuln5
+  exploit-db: https://www.exploit-db.com/exploits/49849
+  overview: In May 2021, I disclosed a sql injection vulnerability in PHP Timeclock 1.04.
   advisory: >- 
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+     PHP Timeclock version 1.04 and prior is vulnerable to both Boolean and Time Based SQL Injection on login.php via the login_userid parameter. 
 
-- Title: "MonkeyType.com - Cross Site Scripting (XSS) via Word History"
+
+- Title: "MonkeyType.com - `Self` Cross Site Scripting (XSS) via Word History"
   Date: 05/2021
   CVE: N/A
   Platform: GitHub
   Vendor: <a href="https://monkeytype.com/">MonkeyType</a>
   Link: https://github.com/Miodec/monkeytype/issues/1348
+  vendor-advisory:  https://github.com/Miodec/monkeytype/issues/1348
   num: 0
   Bounty: "N/A"
   cve: N/A
@@ -106,8 +116,9 @@
   type: "Responsible Disclosure"
   vuln: XSS
   id: vuln6
+  overview: In May 2021, I disclosed a self cross-site scripting vulnerability in MonkeyType.com, a popular typing test application.
   advisory: >- 
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    Prior to ed8e34a MonkeyType.com was vulnerable to a self cross site scripting vulnerability via "Word History". Users could inject arbitrary javascript payloads via the typing challenge and achieve self execution by visiting the "word history" tab.
 
 
 
@@ -117,6 +128,7 @@
   Platform: Hackerone
   Vendor: <a href="https://blockfi.com">BlockFi</a>
   Link: https://hackerone.com/tcbutler320?type=user
+  vendor-advisory: tps://hackerone.com/tcbutler320?type=user
   num: 0
   Bounty: "$1,000"
   cve: N/A
@@ -124,8 +136,9 @@
   type: "Bug Bounty"
   vuln: Undisclosed
   id: vuln7
+  overview: In April, I discloed a vulnerability to Blockfi via their HackerOne Bug Bounty Program.
   advisory: >- 
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    This report was disclosed by BlockFi, however it has since been redacted. The details are not currently pubicly available. 
 
 - Title: "TimeClock Software 1.01 0(Authenticated) Time-Based SQL Injection"
   Date: 10/2020

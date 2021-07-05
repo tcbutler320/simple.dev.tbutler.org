@@ -105,10 +105,14 @@ and (min-device-width : 768px) {
     transition: transform .7s ease-in-out;
 }
 
+.far:hover {
+    color: #DA0037;
+    transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
 .fas:hover {
     color: #DA0037;
     transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-
 }
 
 .fab {

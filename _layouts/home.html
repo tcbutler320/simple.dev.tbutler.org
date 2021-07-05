@@ -10,33 +10,34 @@ layout: default
             {% include words.html %}
    
             <div style="display:block;" id="feature">
-                <small style="opacity: 0.7;" class="animate__animated animate__fadeInUp animate__delay-5s">Latest Research</small>
-                <br>
                 <br>
                 <!-- <p class="animate__animated animate__fadeInUp">Discovered Vulnerabilities</p> -->
-                <div style="text-align: left;" class="animate__animated animate__fadeInUp animate__delay-5s">
+                <div style="text-align: left;" class="animate__animated animate__fadeIn animate__delay-2s">
                     {% for vuln in site.data.vulns limit:1 %}
                         <div style="border-bottom: 3px dotted black;">
-                            <a class="highlight-nz">{{vuln.Title}}</a>
+                            <a class="highlight-nz" style="color:#DA0037;">{{vuln.Title}}</a>
                             <span style="float: right;">{{vuln.Date}}</span>
                         </div>
                         <br>
                         <!-- start post section -->
                         <div id="post" style="padding-left: 40px;">
                                 <span style="display: block;text-align: left;">
-                                    <div class="animate__animated animate__fadeInUp animate__delay-5s">
+                                    <div class="animate__animated animate__fadeIn animate__delay-2s">
                                     <small>
                                         {% if vuln.Report %}
-                                        <a class="muted highlight" style="text-decoration:none;" href="{{vuln.Report}}"><i class="far fa-file-pdf"></i>  PDF Report</a> |
+                                        <a class="muted highlight" style="text-decoration:none;" href="{{vuln.Report}}"><i class="far fa-file-pdf"></i> Report</a> |
                                         {% endif %}
                                         {% if vuln.Communication %}
                                         <a class="muted highlight"style="text-decoration:none;"  href="{{vuln.Communication}}"><i class="fas fa-link"></i>  Communication</a> |
                                         {% endif %}
                                         {% if vuln.vendor-advisory %}
-                                        <a class="muted highlight" style="text-decoration:none;" href="{{vuln.vendor-advisory}}"><i class="fas fa-link"></i>  Vendor Advisory </a> |
+                                        <a class="muted highlight" style="text-decoration:none;" href="{{vuln.vendor-advisory}}"><i class="fas fa-link"></i>  Advisory </a> |
                                         {% endif %}
                                         {% if vuln.CVE-AD %}
-                                        <a class="muted highlight"  style="text-decoration:none;" href="{{vuln.CVE-AD}}"><i class="fas fa-shield-alt"></i>    CVE Details</a>
+                                        <a class="muted highlight"  style="text-decoration:none;" href="{{vuln.CVE-AD}}"><i class="fas fa-shield-alt"></i>  CVE </a> |
+                                        {% endif %}
+                                        {% if vuln.exploit-db %}
+                                        <a class="muted highlight"  style="text-decoration:none;" href="{{vuln.exploit-db}}"><i class="fas fa-spider"></i>  Exploit-DB </a>
                                         {% endif %}
                                     </small>
                                     <p><b>Overview:</b> {{vuln.overview}}</p>
@@ -67,7 +68,7 @@ layout: default
                 <div style="text-align: left;">
                     <div style="border-bottom: 3px dotted black;">
                         <a>Deloitte, Government and Public Service</a>
-                        <span style="float: right;">August 2019 -->  May 2021</span>
+                        <span style="float: right;">August 2019 -->  Present</span>
                     </div>
                     <p>Penetration Tester</p>
                     <ul>
@@ -162,16 +163,19 @@ layout: default
                             <span style="display: none;text-align: left;" id="{{vuln.id}}">
                                 <small>
                                     {% if vuln.Report %}
-                                    <a class="muted highlight" style="text-decoration:none;" href="{{vuln.Report}}"><i class="far fa-file-pdf"></i>  PDF Report</a> |
+                                    <a class="muted highlight" style="text-decoration:none;" href="{{vuln.Report}}"><i class="far fa-file-pdf"></i>  Report</a> |
                                     {% endif %}
                                     {% if vuln.Communication %}
                                     <a class="muted highlight"style="text-decoration:none;"  href="{{vuln.Communication}}"><i class="fas fa-link"></i>  Communication</a> |
                                     {% endif %}
                                     {% if vuln.vendor-advisory %}
-                                    <a class="muted highlight" style="text-decoration:none;" href="{{vuln.vendor-advisory}}"><i class="fas fa-link"></i>  Vendor Advisory </a> |
+                                    <a class="muted highlight" style="text-decoration:none;" href="{{vuln.vendor-advisory}}"><i class="fas fa-link"></i>  Advisory </a> |
                                     {% endif %}
                                     {% if vuln.CVE-AD %}
-                                    <a class="muted highlight"  style="text-decoration:none;" href="{{vuln.CVE-AD}}"><i class="fas fa-shield-alt"></i>    CVE Details</a>
+                                    <a class="muted highlight"  style="text-decoration:none;" href="{{vuln.CVE-AD}}"><i class="fas fa-shield-alt"></i>  CVE </a> |
+                                    {% endif %}
+                                    {% if vuln.exploit-db %}
+                                    <a class="muted highlight"  style="text-decoration:none;" href="{{vuln.exploit-db}}"><i class="fas fa-spider"></i>  Exploit-DB </a>
                                     {% endif %}
                                 </small>
                                 <p><b>Overview:</b> {{vuln.overview}}</p>
@@ -330,5 +334,8 @@ layout: default
 <script>
     function darkMode() {
         document.body.classList.toggle('dark');
+        // var foo = document.getElementById('bulb');
+        // foo.classList.remove("far");
+        // foo.classList.add("fas");
     }
 </script>
