@@ -4,13 +4,18 @@
   Platform: "N/A"
   Vendor: <a href="https://www.akcp.com/support-center/customer-login/sensor-probe-firmware-changelog/">AKCP</a>
   Link: /2021/06/28/CVE-2021-35956.html
+  Report: /2021/06/28/CVE-2021-35956.html
   num: 0
+  overview: In May 2021, I disclosed a stored cross-site scripting vulnerability to vendor AKCP in regards to the sensorProbe enviormental monitoring device
   Bounty: "N/A"
   cve: N/A
+  vendor-advisory: https://www.akcp.com/support-center/customer-login/sensor-probe-firmware-changelog/
   severity: Medium
+  CVE-AD: https://nvd.nist.gov/vuln/detail/CVE-2021-35956
   type: "0-Day"
   vuln: "XSS"
   id: vuln1
+  Communication: 
   advisory: >- 
     All sensorProbe devices prior to firmware version SP480-20210624 are vulnerable to authenticated stored cross-site scripting via the Sensor Description, Email, and System setting fields. 
     Authenticated users can introduce arbitrary javascript through the vulnerable fields, and have payloads execute in the context of users who visit the sensorProbe embedded webserver dashboard. 

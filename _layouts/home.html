@@ -12,9 +12,9 @@ layout: default
         <br>
         <div id="home">
             <div style="display:none;" id="socials" class="center">
-                <a class="animate__animated animate__fadeInUp animate__delay-1s" href="https://twitter.com/tbutler0x90"><i class="fab fa-lg fa-twitter"></i></a>
-                <a class="animate__animated animate__fadeInUp animate__delay-2s" href="https://github.com/tcbutler320"><i class="fab fa-lg fa-github"></i></a>
-                <a class="animate__animated animate__fadeInUp animate__delay-3s" href="https://www.linkedin.com/in/tyler-b-a700a1aa/"><i class="fab fa-lg fa-linkedin"></i></a>
+                <a class="animate__animated animate__fadeInUp animate__delay-1s" href="https://twitter.com/tbutler0x90"><i class="fab fa-twitter"></i></a>
+                <a class="animate__animated animate__fadeInUp animate__delay-2s" href="https://github.com/tcbutler320"><i class="fab fa-github"></i></a>
+                <a class="animate__animated animate__fadeInUp animate__delay-3s" href="https://www.linkedin.com/in/tyler-b-a700a1aa/"><i class="fab fa-linkedin"></i></a>
             </div>
             <!-- start resume section -->
             <div style="display:none;" id="resume"  class="center animate__animated animate__fadeIn animate__delay-1s">
@@ -53,20 +53,13 @@ layout: default
                     </ul>
                 </div>
                 <br>
-                <b>Vulnerability Research</b>
+                <b>Disclosed Vulnerabilities</b>
                 <br>
                 <div style="text-align: left;">
-                    <div style="border-bottom: 3px dotted black;">
-                        <a>Common Vulnerabilities and Exposures (CVE)</a>
-                    </div>
                     <ul>
-                        <li>CVE-2021-35956 - AKCP sensorProbe - 'Multiple' Cross Site Scripting (XSS)	</li>
-                    </ul>
-                    <div style="border-bottom: 3px dotted black;">
-                        <a>HackerOne Bug Bounties</a>
-                    </div>
-                    <ul>
-                        <li>BlockFi - Undisclosed Vulnerability</li>
+                        {% for vuln in site.data.vulns %}
+                        <li>{{vuln.Title}}</li>
+                        {% endfor %}
                     </ul>
                 </div>
                  <!-- start awards section -->
@@ -122,9 +115,24 @@ layout: default
                         </div>
                         <br>
                         <!-- start post section -->
-                        <div id="post">
+                        <div id="post" style="padding-left: 20px;">
                             <span style="display: none;text-align: left;" id="{{vuln.id}}">
-                                <p>{{ vuln.advisory  | markdownify }}</p>
+                                <small>
+                                    {% if vuln.Report %}
+                                    <a class="muted highlight" href="{{vuln.Report}}">PDF Report</a> |
+                                    {% endif %}
+                                    {% if vuln.Communication %}
+                                    <a class="muted highlight" href="{{vuln.Communication}}">Communication</a> |
+                                    {% endif %}
+                                    {% if vuln.vendor-advisory %}
+                                    <a class="muted highlight" href="{{vuln.vendor-advisory}}">Vendor Advisory </a> |
+                                    {% endif %}
+                                    {% if vuln.CVE-AD %}
+                                    <a class="muted highlight" href="{{vuln.CVE-AD}}">CVE </a>
+                                    {% endif %}
+                                </small>
+                                <p><b>Overview:</b> {{vuln.overview}}</p>
+                                <p><b>Details:</b> {{ vuln.advisory }}</p>
                             </span>
                         </div>
                         <!-- end post section -->
@@ -158,7 +166,20 @@ layout: default
             <!-- start about section -->
             <div style="display:none;" id="about" class="center">
                 <div style="text-align: left;">
-                    <a class="animate__animated animate__fadeInUp animate__delay-1s" >{{site.about}}</a>
+                    <a class="animate__animated animate__fadeIn animate__delay-1s" >{{site.about}}</a>
+                </div>
+                <br>
+                <br>
+                <div class="animate__animated animate__fadeIn animate__delay-2s">
+                    <a href="https://twitter.com/tbutler0x90"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/tyler-b-a700a1aa/"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/tcbutler320"><i class="fab fa-github"></i></a>
+                    <a href="mailto:developer.tbutler@gmail.com"><i class="fab fa-email"></i></a>
+                </div>  
+                <br>
+                <br>
+                <div class="animate__animated animate__fadeIn animate__delay-3s" >
+                    <!-- <small>Interested in this Jekyll theme? I open sourced it, check it out <a href="https://github.com/tcbutler320/simple.dev.tbutler.org">here</a></small>  -->
                 </div>
             </div>
             <!-- end about section -->
@@ -168,13 +189,13 @@ layout: default
                 <!-- <p class="animate__animated animate__fadeInUp">contact me</p> -->
                 <form name="contact" method="POST" data-netlify="true" class="animate__animated animate__fadeInUp animate__delay-1s">
                     <p>
-                    <label>name:  <input type="text" name="name" /></label>   
+                    <label>name:  <input type="text" name="name" placeholder="foo"/></label>   
                     </p>
                     <p>
-                    <label>email:  <input type="email" name="email" /></label>
+                    <label>email:  <input type="email" name="email" placeholder="foo@bar.com"/></label>
                     </p>
                     <p>
-                    <label>message:  <textarea name="message"></textarea></label>
+                    <label>message:  <textarea name="message" placeholder="foobar"></textarea></label>
                     </p>
                     <p>
                     <button type="submit">Send</button>
@@ -222,16 +243,16 @@ layout: default
             abouty.style.color = "inherit";
             resumey.style.color = "inherit";
             bugsy.style.color = "inherit";
-            blogy.style.color = "inherit";
+            // blogy.style.color = "inherit";
             contacty.style.color = "inherit";
-            
+
             y.style.color = "#DA0037";
         } else {
             x.style.display = "none";
             abouty.style.color = "inherit";
             resumey.style.color = "inherit";
             bugsy.style.color = "inherit";
-            blogy.style.color = "inherit";
+            // blogy.style.color = "inherit";
             contacty.style.color = "inherit";
 
             y.style.color = "inherit";

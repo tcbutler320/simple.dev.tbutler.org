@@ -24,9 +24,9 @@ td {
     border-bottom: 1px solid black;
 }
 
-/* .muted {
-    color: #444444;
-} */
+.muted {
+    opacity: 0.7;
+}
 
 a {
     color: inherit;
