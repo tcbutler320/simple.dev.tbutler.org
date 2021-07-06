@@ -6,7 +6,8 @@ layout: default
         <p class="animate__animated animate__fadeInUp">
             <b>Tyler C Butler</b>
             <br>
-            <i>Independent Security Researcher</i>
+            <i style="text-align: center;">Independent Security Researcher</i>
+            <br>
             {% include words.html %}
    
             <div style="display:block;" id="feature">
@@ -20,7 +21,7 @@ layout: default
                         </div>
                         <br>
                         <!-- start post section -->
-                        <div id="post" style="padding-left: 40px;">
+                        <div id="post">
                                 <span style="display: block;text-align: left;">
                                     <div class="animate__animated animate__fadeIn animate__delay-2s">
                                     <small>
@@ -45,6 +46,8 @@ layout: default
                                     {% if vuln.cve%}
                                     <p class="muted">{{vuln.cve}}</p>
                                     {% endif %}
+                                    <small><span class="btn highlight" id="bugs-btn" onclick="showElement('bugs');"><i class="fas fa-external-link-alt"></i> more research</span>
+                                    </small>
                                 </span>
                              </div>
                         </div>
@@ -153,9 +156,9 @@ layout: default
                 <!-- <p class="animate__animated animate__fadeInUp">Discovered Vulnerabilities</p> -->
                 <div style="text-align: left;" class="animate__animated animate__fadeInUp animate__delay-1s">
                     {% for vuln in site.data.vulns %}
-                        <div style="border-bottom: 3px dotted black;" onclick="goToPost('{{vuln.id}}');">
-                            <a class="highlight-nz">{{vuln.Title}}</a>
-                            <span style="float: right;">{{vuln.Date}}</span>
+                        <div class="highlight-nz" style="border-bottom: 3px dotted black;" onclick="goToPost('{{vuln.id}}');">
+                            <a>{{vuln.Title}}</a>
+                            <span style="float: right;">{{vuln.Date | date: "%B, %Y"}}</span>
                         </div>
                         <br>
                         <!-- start post section -->
@@ -181,7 +184,7 @@ layout: default
                                 <p><b>Overview:</b> {{vuln.overview}}</p>
                                 <p><b>Details:</b> {{ vuln.advisory }}</p>
                                 {% if vuln.cve%}
-                                <p class="muted">{{vuln.cve}}</p>
+                                <p class="muted">CVE: {{vuln.cve}}</p>
                                 {% endif %}
                             </span>
                         </div>
