@@ -16,7 +16,7 @@
   vuln: "XSS"
   id: vuln1
   exploit-db: https://www.exploit-db.com/exploits/50080
-  Communication: 
+  Communication:
   advisory: >- 
     All sensorProbe devices prior to firmware version SP480-20210624 are vulnerable to authenticated stored cross-site scripting via the Sensor Description, Email, and System setting fields. 
     Authenticated users can introduce arbitrary javascript through the vulnerable fields, and have payloads execute in the context of users who visit the sensorProbe embedded webserver dashboard. 

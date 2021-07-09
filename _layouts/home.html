@@ -9,15 +9,18 @@ layout: default
             <i style="text-align: center;">Independent Security Researcher</i>
             <br>
             {% include words.html %}
+        
    
             <div style="display:block;" id="feature">
+                <b class="animate__animated animate__fadeIn animate__delay-2s">Most Recent Vulnerability Disclosure</b>
+                <br>
                 <br>
                 <!-- <p class="animate__animated animate__fadeInUp">Discovered Vulnerabilities</p> -->
                 <div style="text-align: left;" class="animate__animated animate__fadeIn animate__delay-2s">
                     {% for vuln in site.data.vulns limit:1 %}
                         <div style="border-bottom: 3px dotted black;">
-                            <a class="highlight-nz" style="color:#DA0037;">{{vuln.Title}}</a>
-                            <span style="float: right;">{{vuln.Date}}</span>
+                            <a class="highlight-nz">{{vuln.Title}}</a>
+                            <span style="float: right;">{{vuln.Date | date: "%B, %Y" }}</span>
                         </div>
                         <br>
                         <!-- start post section -->
@@ -44,9 +47,11 @@ layout: default
                                     <p><b>Overview:</b> {{vuln.overview}}</p>
                                     <p><b>Details:</b> {{ vuln.advisory }}</p>
                                     {% if vuln.cve%}
-                                    <p class="muted">{{vuln.cve}}</p>
+                                    <small class="muted">{{vuln.cve}}</small>
+                                    <br>
+                                    <br>
                                     {% endif %}
-                                    <small><span class="btn highlight" id="bugs-btn" onclick="showElement('bugs');"><i class="fas fa-external-link-alt"></i> more research</span>
+                                    <small><span class="btn highlight" id="research-btn" onclick="showElement('research');"><i class="fas fa-external-link-alt"></i> more research</span>
                                     </small>
                                 </span>
                              </div>
@@ -151,8 +156,8 @@ layout: default
             </div>
             <!-- end resume section -->
 
-            <!-- start bugs section -->
-            <div style="display:none;" id="bugs">
+            <!-- start research section -->
+            <div style="display:none;" id="research">
                 <!-- <p class="animate__animated animate__fadeInUp">Discovered Vulnerabilities</p> -->
                 <div style="text-align: left;" class="animate__animated animate__fadeInUp animate__delay-1s">
                     {% for vuln in site.data.vulns %}
@@ -184,7 +189,9 @@ layout: default
                                 <p><b>Overview:</b> {{vuln.overview}}</p>
                                 <p><b>Details:</b> {{ vuln.advisory }}</p>
                                 {% if vuln.cve%}
-                                <p class="muted">CVE: {{vuln.cve}}</p>
+                                <small class="muted">CVE: {{vuln.cve}}</small>
+                                <br>
+                                <br>
                                 {% endif %}
                             </span>
                         </div>
@@ -192,7 +199,7 @@ layout: default
                     {% endfor %}
                 </div>
             </div>
-            <!-- end bugs section -->
+            <!-- end research section -->
 
             <!-- start blog section -->
             <div style="display:none;" id="blog">
@@ -219,7 +226,16 @@ layout: default
             <!-- start about section -->
             <div style="display:none;" id="about" class="center">
                 <div style="text-align: left;">
-                    <a class="animate__animated animate__fadeIn animate__delay-1s" >{{site.about}}</a>
+                    <!-- <img class="center" src="/assets/css/img/me.png"> -->
+                    <br>
+                    <p>{{site.about}}</p>
+                    <!-- <div class="container animate__animated animate__fadeIn animate__delay-1s" >
+                        <img class="container__image" src="/assets/css/img/me.png">
+                        <div class="container__text">
+                          <h2>About me</h2>
+                          <p>{{site.about}}</p>
+                        </div>
+                    </div> -->
                 </div>
                 <br>
                 <br>
@@ -275,8 +291,8 @@ layout: default
         var resume = document.getElementById('resume');
         var resumey = document.getElementById('resume-btn');
 
-        var bugs = document.getElementById('bugs');
-        var bugsy = document.getElementById('bugs-btn');
+        var research = document.getElementById('research');
+        var researchy = document.getElementById('research-btn');
 
         var blog = document.getElementById('blog');
         var blogy = document.getElementById('blog-btn');
@@ -291,7 +307,7 @@ layout: default
 
         about.style.display = "none";
         resume.style.display = "none";
-        bugs.style.display = "none";
+        research.style.display = "none";
         blog.style.display = "none";
         contact.style.display = "none";
 
@@ -303,7 +319,7 @@ layout: default
 
             abouty.style.color = "inherit";
             resumey.style.color = "inherit";
-            bugsy.style.color = "inherit";
+            researchy.style.color = "inherit";
             // blogy.style.color = "inherit";
             contacty.style.color = "inherit";
             feature.style.display = "none";
@@ -313,7 +329,7 @@ layout: default
             x.style.display = "none";
             abouty.style.color = "inherit";
             resumey.style.color = "inherit";
-            bugsy.style.color = "inherit";
+            researchy.style.color = "inherit";
             // blogy.style.color = "inherit";
             contacty.style.color = "inherit";
 
