@@ -6,7 +6,7 @@
   Link: /2021/06/28/CVE-2021-35956.html
   Report: /2021/06/28/CVE-2021-35956.html
   num: 0
-  overview: In May 2021, I disclosed a stored cross-site scripting vulnerability to vendor AKCP in regards to the sensorProbe enviormental monitoring device
+  overview: In May 2021, I disclosed a stored cross-site scripting vulnerability to vendor AKCP in regards to the sensorProbe enviormental monitoring device. AKCP has since created a patch, and the vulnerability has been given the cve id CVE-2021-35956.
   Bounty: "N/A"
   cve: CVE-2021-35956
   vendor-advisory: https://www.akcp.com/support-center/customer-login/sensor-probe-firmware-changelog/
@@ -17,10 +17,12 @@
   id: vuln1
   exploit-db: https://www.exploit-db.com/exploits/50080
   Communication:
+  news: true
+  news1: https://packetstormsecurity.com/files/163343/AKCP-sensorProbe-SPX476-Cross-Site-Scripting.html
   advisory: >- 
     All sensorProbe devices prior to firmware version SP480-20210624 are vulnerable to authenticated stored cross-site scripting via the Sensor Description, Email, and System setting fields. 
     Authenticated users can introduce arbitrary javascript through the vulnerable fields, and have payloads execute in the context of users who visit the sensorProbe embedded webserver dashboard. 
-    While stored XSS can be dangerous, this vulnerability requires the attacker to already be authenticated in order to store payloads.
+    While stored XSS can be dangerous, this vulnerability requires the attacker to already be authenticated in order to store payloads. NIST has given this vulnerability a severity score of 5.4.
 
 - Title: "Authentication Bypass by Spoofing in Miodec/monkeytype"
   Date: 05/2021
