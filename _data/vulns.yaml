@@ -1,5 +1,31 @@
+- Title: "Colorhunt.co Reflective Cross-Site Scripting (XSS) via Pallet Type"
+  Date: 07/2021
+  CVE: 
+  Platform: 
+  Vendor: <a href="https://www.colorhunt.co/">Colorhunt</a>
+  Link: 
+  pdf: True
+  Report: 
+  num: 0
+  overview: In June 2021, I disclosed a reflective cross-site scripting vulerability in colorhunt.co. The developers awknowledged the vulnerability but indicated they have no plans to implement a fix.
+  Bounty: 
+  cve: 
+  vendor-advisory: 
+  severity: Medium
+  CVE-AD: 
+  type: "0-Day"
+  vuln: "XSS"
+  id: vuln0
+  exploit-db: 
+  Communication:
+  news: false
+  news1: 
+  advisory: >- 
+    On sunday June 6th, I discovered a reflected cross-site (xss) scripting vulnerability in colorhunt.co via the pallet type selection. Malicious users can inject arbitrary javascript directly into two script elements by appending a crafted payload to the end of the pallet name in the resource `/palettes/[term]`. This vulnerability can be used to spread malicious links that execute client-side code in victim browsers. It is recommended that colorhunt triage this vulnerability as soon as possible, and implement validation and sanitization measures.
+
 - Title: "[CVE-2021-35956] AKCP sensorProbe - 'Multiple' Cross Site Scripting (XSS)"
   Date: 06/2021
+  featured: true
   CVE: "<a href='https://nvd.nist.gov/vuln/detail/CVE-2021-35956'>CVE-2021-35956</a>"
   Platform: "N/A"
   Vendor: <a href="https://www.akcp.com/support-center/customer-login/sensor-probe-firmware-changelog/">AKCP</a>

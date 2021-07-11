@@ -4,6 +4,9 @@ layout: default
 <div class="home">
     <div class="center">
         <p class="animate__animated animate__fadeInUp">
+            <img src="/assets/css/img/me.png" alt="Avatar" class="avatar">
+            <br>
+            <br>
             <b>Tyler C Butler</b>
             <br>
             <i style="text-align: center;">Independent Security Researcher</i>
@@ -15,7 +18,8 @@ layout: default
                 <br>
                 <!-- <p class="animate__animated animate__fadeInUp">Discovered Vulnerabilities</p> -->
                 <div style="text-align: left;" class="animate__animated animate__fadeIn animate__delay-2s">
-                    {% for vuln in site.data.vulns limit:1 %}
+                    {% for vuln in site.data.vulns %}
+                    {% if vuln.featured %}
                         <div>
                             <a class="highlight-nz">{{vuln.Title}}</a>
                             <span style="float: right;">{{vuln.Date | date: "%B, %Y" }}</span>
@@ -55,11 +59,11 @@ layout: default
                              </div>
                         </div>
                         <!-- end post section -->
+                        {% endif %}
                     {% endfor %}
                 </div>
             </div>
         </p>
-        <br>
         <div id="home">
             <div style="display:none;" id="socials" class="center">
                 <a class="animate__animated animate__fadeInUp animate__delay-1s" href="https://twitter.com/tbutler0x90"><i class="fab fa-twitter"></i></a>
@@ -192,7 +196,7 @@ layout: default
                                 <small class="muted">CVE: {{vuln.cve}}</small>
                                 <br>
                                 {% endif %}
-                                <p><b>Overview:</b> {{vuln.overview}}</p>
+                                <p><b>Overview 2</b> {{vuln.overview}}</p>
                                 <p><b>Details:</b> {{ vuln.advisory }}</p>
                                 {% if vuln.news %}
                                 <b>In the News:</b>
@@ -200,6 +204,11 @@ layout: default
                                 <ul>
                                     <li>{{vuln.news1}}</li>
                                   </ul>
+                                {% endif %}
+                                {% if vuln.pdf %}
+                                <br>
+                                <b>Report</b>
+                                <embed src="/assets/css/pdf/readme.pdf" type="application/pdf" width="100%" height="600px" />
                                 {% endif %}
                             </span>
                         </div>
@@ -234,16 +243,7 @@ layout: default
             <!-- start about section -->
             <div style="display:none;" id="about" class="center">
                 <div style="text-align: left;">
-                    <!-- <img class="center" src="/assets/css/img/me.png"> -->
-                    <br>
                     <p>{{site.about}}</p>
-                    <!-- <div class="container animate__animated animate__fadeIn animate__delay-1s" >
-                        <img class="container__image" src="/assets/css/img/me.png">
-                        <div class="container__text">
-                          <h2>About me</h2>
-                          <p>{{site.about}}</p>
-                        </div>
-                    </div> -->
                 </div>
                 <br>
                 <br>
