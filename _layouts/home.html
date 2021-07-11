@@ -22,7 +22,7 @@ layout: default
                     {% if vuln.featured %}
                         <div>
                             <a class="highlight-nz">{{vuln.Title}}</a>
-                            <span style="float: right;">{{vuln.Date | date: "%B, %Y" }}</span>
+                            <span class="check" style="float: right;">{{vuln.Date | date: "%B, %Y" }}</span>
                         </div>
                         <br>
                         <!-- start post section -->
@@ -76,7 +76,7 @@ layout: default
                 <b>Work History</b>
                 <br>
                 <div style="text-align: left;">
-                    <div style="border-bottom: 3px dotted black;">
+                    <div class="check-border">
                         <a>Deloitte, Government and Public Service</a>
                         <span style="float: right;">August 2019 -->  Present</span>
                     </div>
@@ -96,7 +96,7 @@ layout: default
                     </ul>
                 </div>
                 <div style="text-align: left;">
-                    <div style="border-bottom: 3px dotted black;">
+                    <div class="check-border">
                         <a>HackerOne</a>
                         <span style="float: right;">April 2020 --> Present</span>
                     </div>
@@ -119,7 +119,7 @@ layout: default
                  <!-- start awards section -->
                  <b>Awards and Recognition</b>
                  <div style="text-align: left;">
-                    <div style="border-bottom: 3px dotted black;">
+                    <div class="check-border">
                         <a><a  href="https://www.motorolasolutions.com/en_us/about/security-vulnerability/hall-of-fame.html"> MotorolaSolution Bug Bounty Hall of Fame</a></a>
                         <span style="float: right;">June 2021</span>
                     </div>
@@ -130,7 +130,7 @@ layout: default
                 <b>Education</b>
                 <br>
                 <div style="text-align: left;">
-                    <div style="border-bottom: 3px dotted black;">
+                    <div class="check-border">
                         <a>The Pennsylvania State University</a>
                         <span style="float: right;">Graduated 2018</span>
                     </div>
@@ -145,12 +145,12 @@ layout: default
                 </div>
                 <br>
                 <div style="text-align: left;">
-                    <div style="border-bottom: 3px dotted black;">
+                    <div class="check-border">
                         <a>eLearnSecurity Web Application Penetration Tester (eWPT)</a>
                         <span style="float: right;">March 2021</span>
                     </div>
                     <br>
-                    <div style="border-bottom: 3px dotted black;">
+                    <div class="check-border">
                         <a>eLearnSecurity Junior Penetration Tester (eJPT) </a>
                         <span style="float: right;">January 2020</span>
                     </div>
@@ -166,9 +166,9 @@ layout: default
                 <br>
                 <div style="text-align: left;" class="animate__animated animate__fadeInUp animate__delay-1s">
                     {% for vuln in site.data.vulns %}
-                        <div class="highlight-nz" style="border-bottom: 3px dotted black;" onclick="goToPost('{{vuln.id}}');">
+                        <div class="highlight-nz check-border"  onclick="goToPost('{{vuln.id}}');">
                             <a>{{vuln.Title}}</a>
-                            <span style="float: right;">{{vuln.Date | date: "%B, %Y"}}</span>
+                            <span class="check" style="float: right;">{{vuln.Date | date: "%B, %Y"}}</span>
                         </div>
                         <br>
                         <!-- start post section -->
@@ -226,9 +226,9 @@ layout: default
             <!-- <p class="animate__animated animate__fadeInUp">Discovered Vulnerabilities</p> -->
                 <div style="text-align: left;" class="animate__animated animate__fadeInUp animate__delay-1s">
                     {% for post in site.posts %}
-                        <div style="border-bottom: 3px dotted black;" onclick="goToPost('{{vuln.id}}');">
-                            <a class="highlight-nz" href="{{post.url}}">{{post.title}}</a>
-                            <span style="float: right;">{{post.date}}</span>
+                        <div class="check-border" onclick="goToPost('{{vuln.id}}');">
+                            <a class="highlight-nz" href="{{post.url}}" style="text-decoration: none;">{{post.title}}</a>
+                            <span class="check" style="float: right;">{{post.date}}</span>
                         </div>
                         <br>
                         <!-- start post section -->

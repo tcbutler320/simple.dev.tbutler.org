@@ -54,6 +54,14 @@ and (max-device-width : 767px) {
         text-align:center;
         padding: 5px;
     }
+
+    .check {
+        display: none;
+    }
+
+    .check-border{
+        border: none;
+    }
     
     
     .home {
@@ -81,6 +89,14 @@ and (min-device-width : 768px) {
         margin: auto;
         width: 80%;
         text-align:center
+    }
+
+    .check {
+        display: block;
+    }
+
+    .check-border {
+        border-bottom: 3px dotted black;
     }
     
     
