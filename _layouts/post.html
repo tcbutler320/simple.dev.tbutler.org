@@ -3,9 +3,28 @@ layout: default
 ---
 
 <div class="post">
-    <a href="/">home</a>
+    <div class="home">
+        <div class="center">
+            <p>
+                <img src="/assets/img/me.png" alt="Avatar" class="avatar">
+                <br>
+                <br>
+                <b>Tyler C Butler</b>
+                <br>
+                <i style="text-align: center;">Independent Security Researcher</i>
+                <br>
+                <small>
+                    <a href="/" class="btn highlight">go home </a>
+                    <br>
+                    <i>
+                        <small class="highlight animate__animated animate__fadeInUp animate__delay-2s" onclick="darkMode();"><i id="bulb" class="far fa-lightbulb"></i></small>
+                        <small class="highlight animate__animated animate__fadeInUp animate__delay-2s"><a href="/"><i id="home" class="fas fa-home"></i></a></small>
+                    </small>                    
+            </p>
+        </div>
+    </div>
     <p>{{page.title}}</p>
     <small>{{page.author}} | {{page.date}}</small>
-    {{ content }}
+    {{ content | markdownify}}
 </div>
 

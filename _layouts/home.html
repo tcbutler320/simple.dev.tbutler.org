@@ -4,7 +4,7 @@ layout: default
 <div class="home">
     <div class="center">
         <p class="animate__animated animate__fadeInUp">
-            <img src="/assets/css/img/me.png" alt="Avatar" class="avatar">
+            <img src="/assets/img/me.png" alt="Avatar" class="avatar">
             <br>
             <br>
             <b>Tyler C Butler</b>
@@ -175,6 +175,9 @@ layout: default
                         <div id="post" style="padding-left: 40px;">
                             <span style="display: none;text-align: left;" id="{{vuln.id}}">
                                 <small>
+                                    {% if vuln.blog %}
+                                    <a class="zoom muted highlight" style="text-decoration:none;" href="{{vuln.Report}}"><i class="fas fa-book"></i> Blog</a> |
+                                    {% endif %}
                                     {% if vuln.Report %}
                                     <a class="muted highlight" style="text-decoration:none;" href="{{vuln.Report}}"><i class="far fa-file-pdf"></i>  Report</a> |
                                     {% endif %}
@@ -224,7 +227,7 @@ layout: default
                 <div style="text-align: left;" class="animate__animated animate__fadeInUp animate__delay-1s">
                     {% for post in site.posts %}
                         <div style="border-bottom: 3px dotted black;" onclick="goToPost('{{vuln.id}}');">
-                            <a class="highlight-nz">{{post.title}}</a>
+                            <a class="highlight-nz" href="{{post.url}}">{{post.title}}</a>
                             <span style="float: right;">{{post.date}}</span>
                         </div>
                         <br>
