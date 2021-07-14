@@ -5,7 +5,7 @@
   Vendor: <a href="https://www.colorhunt.co/">Colorhunt</a>
   Link: 
   pdf: True
-  Report: 
+  Report: /assets/css/pdf/readme.pdf
   num: 0
   overview: In June 2021, I disclosed a reflective cross-site scripting vulerability in colorhunt.co. The developers awknowledged the vulnerability but indicated they have no plans to implement a fix.
   Bounty: 
