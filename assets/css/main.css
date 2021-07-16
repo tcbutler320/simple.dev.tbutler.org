@@ -391,3 +391,10 @@ and (min-device-width : 768px) {
   #myUL li a:hover:not(.header) {
     background-color: #eee; /* Add a hover effect to all links, except for headers */
   }
+
+
+  .test, ul{
+    text-align: center;
+    list-style: none;
+    list-style-type: none;
+  }
