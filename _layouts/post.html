@@ -13,18 +13,50 @@ layout: default
                 <br>
                 <i style="text-align: center;">Independent Security Researcher</i>
                 <br>
-                <small>
-                    <a href="/" class="btn highlight">go home </a>
-                    <br>
-                    <i>
-                        <small class="highlight animate__animated animate__fadeInUp animate__delay-2s" onclick="darkMode();"><i id="bulb" class="far fa-lightbulb"></i></small>
-                        <small class="highlight animate__animated animate__fadeInUp animate__delay-2s"><a href="/"><i id="home" class="fas fa-home"></i></a></small>
-                    </small>                    
+                <small><a href="/">go back</a></small>
+                <br>                
             </p>
         </div>
     </div>
-    <p>{{page.title}}</p>
-    <small>{{page.author}} | {{page.date}}</small>
-    {{ content | markdownify}}
+    <p>
+        {{page.title}}
+        <br>
+        <small>
+            {% if page.report %}
+            <a class="muted highlight" style="text-decoration:none;" href="{{vuln.Report}}"><i class="far fa-file-pdf"></i> Report</a> |
+            {% endif %}
+            {% if page.communication %}
+            <a class="muted highlight"style="text-decoration:none;"  href="{{vuln.Communication}}"><i class="fas fa-link"></i>  Communication</a> |
+            {% endif %}
+            {% if page.vendor-advisory %}
+            <a class="muted highlight" style="text-decoration:none;" href="{{vuln.vendor-advisory}}"><i class="fas fa-link"></i>  Advisory </a> |
+            {% endif %}
+            {% if page.CVE-AD %}
+            <a class="muted highlight"  style="text-decoration:none;" href="{{vuln.CVE-AD}}"><i class="fas fa-shield-alt"></i>  CVE </a> |
+            {% endif %}
+            {% if page.exploit-db %}
+            <a class="muted highlight"  style="text-decoration:none;" href="{{vuln.exploit-db}}"><i class="fas fa-spider"></i>  Exploit-DB </a>
+            {% endif %}
+        </small>
+        <br>
+        <small>{{page.author}} | {{page.date | date: "%B, %Y"}}</small>
+    </p>
+    {{ content }}
+    <div id="gitalk-container"></div>
 </div>
+
+<script>
+var foo = "{{page.url}}";
+const gitalk = new Gitalk({
+  clientID: 'GitHub Application Client ID',
+  clientSecret: 'GitHub Application Client Secret',
+  repo: 'simple.dev.tbutler.org',      // The repository of store comments,
+  owner: 'tcbutler320',
+  admin: ['tcbutler320'],
+  id: foo,      // Ensure uniqueness and length less than 50
+  distractionFreeMode: false  // Facebook-like distraction free mode
+})
+
+gitalk.render('gitalk-container')
+</script>
 
