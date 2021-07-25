@@ -1,7 +1,7 @@
 
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: #1B1717;
+    color: #132C33;
 }
 
 
@@ -14,7 +14,7 @@ img {
 }
 
 .dark {
-    background-color: black;
+    background-color: #003638;
     color: white;
 }
 
@@ -284,6 +284,11 @@ and (min-device-width : 768px) {
   font-size: 14px;
   font-style: italic;
   margin-top: 4px;
+}
+
+
+#myUL {
+  list-style-type: none;
 }
 
 

@@ -3,7 +3,7 @@ layout: default
 ---
 <div class="home">
     <div class="center">
-        <p class="animate__animated animate__fadeInUp">
+        <p>
             <img src="/assets/img/me.png" alt="Avatar" class="avatar">
             <br>
             <b>Tyler C Butler</b>
@@ -15,34 +15,37 @@ layout: default
                  <!-- <div class="test" data-netlify-identity-menu></div> -->
             </small>
             <div style="display:block;" id="feature">
-                <b class="animate__animated animate__fadeIn animate__delay-2s">Most Recent Vulnerability Disclosure</b>
+                <b>Most Recent Vulnerability Disclosure</b>
                 <br>
                 <br>
                 <!-- <p class="animate__animated animate__fadeInUp">Discovered Vulnerabilities</p> -->
-                <div style="text-align: left;" class="animate__animated animate__fadeIn animate__delay-2s">
+                <div style="text-align: left;">
                     {% for vuln in site.data.vulns %}
                     {% if vuln.featured %}
-                        <div>
+                        <div class="check-border">
                             <a class="highlight-nz">{{vuln.Title}}</a>
                             <span class="check" style="float: right;">{{vuln.Date | date: "%B, %Y" }}</span>
                         </div>
                         <br>
                         <!-- start post section -->
-                        <div id="post">
+                        <div id="post" style="padding-left: 40px;">
                                 <span style="display: block;text-align: left;">
-                                    <div class="animate__animated animate__fadeIn animate__delay-2s">
+                                    <div >
                                     <small>
+                                        {% if vuln.blog %}
+                                        <a class="muted highlight" style="text-decoration:none;" href="{{vuln.blog}}"> <i class="far fa-newspaper"></i> Blog</a> 
+                                        {% endif %}
                                         {% if vuln.Report %}
-                                        <a class="muted highlight" style="text-decoration:none;" href="{{vuln.Report}}"><i class="far fa-file-pdf"></i> Report</a> |
+                                        <a class="muted highlight" style="text-decoration:none;" href="{{vuln.Report}}"><i class="far fa-file-pdf"></i> Report</a> 
                                         {% endif %}
                                         {% if vuln.Communication %}
-                                        <a class="muted highlight"style="text-decoration:none;"  href="{{vuln.Communication}}"><i class="fas fa-link"></i>  Communication</a> |
+                                        <a class="muted highlight"style="text-decoration:none;"  href="{{vuln.Communication}}"><i class="fas fa-link"></i>  Communication</a> 
                                         {% endif %}
                                         {% if vuln.vendor-advisory %}
-                                        <a class="muted highlight" style="text-decoration:none;" href="{{vuln.vendor-advisory}}"><i class="fas fa-link"></i>  Advisory </a> |
+                                        <a class="muted highlight" style="text-decoration:none;" href="{{vuln.vendor-advisory}}"><i class="fas fa-link"></i>  Advisory </a> 
                                         {% endif %}
                                         {% if vuln.CVE-AD %}
-                                        <a class="muted highlight"  style="text-decoration:none;" href="{{vuln.CVE-AD}}"><i class="fas fa-shield-alt"></i>  CVE </a> |
+                                        <a class="muted highlight"  style="text-decoration:none;" href="{{vuln.CVE-AD}}"><i class="fas fa-shield-alt"></i>  CVE </a> 
                                         {% endif %}
                                         {% if vuln.exploit-db %}
                                         <a class="muted highlight"  style="text-decoration:none;" href="{{vuln.exploit-db}}"><i class="fas fa-spider"></i>  Exploit-DB </a>
@@ -55,25 +58,25 @@ layout: default
                                     <br>
                                     <br>
                                     {% endif %}
-                                    <small><span class="btn highlight" id="research-btn" onclick="showElement('research');"><i class="fas fa-external-link-alt"></i> more research</span>
-                                    </small>
                                 </span>
                              </div>
                         </div>
                         <!-- end post section -->
                         {% endif %}
                     {% endfor %}
+                    <small><span class="btn highlight" id="research-btn" onclick="showElement('research');"><i class="fas fa-external-link-alt"></i> all research advisories</span>
+                    </small>
                 </div>
             </div>
         </p>
         <div id="home">
             <div style="display:none;" id="socials" class="center">
-                <a class="animate__animated animate__fadeInUp animate__delay-1s" href="https://twitter.com/tbutler0x90"><i class="fab fa-twitter"></i></a>
-                <a class="animate__animated animate__fadeInUp animate__delay-2s" href="https://github.com/tcbutler320"><i class="fab fa-github"></i></a>
-                <a class="animate__animated animate__fadeInUp animate__delay-3s" href="https://www.linkedin.com/in/tyler-b-a700a1aa/"><i class="fab fa-linkedin"></i></a>
+                <a  href="https://twitter.com/tbutler0x90"><i class="fab fa-twitter"></i></a>
+                <a  href="https://github.com/tcbutler320"><i class="fab fa-github"></i></a>
+                <a  href="https://www.linkedin.com/in/tyler-b-a700a1aa/"><i class="fab fa-linkedin"></i></a>
             </div>
             <!-- start resume section -->
-            <div style="display:none;" id="resume"  class="center animate__animated animate__fadeIn animate__delay-1s">
+            <div style="display:none;" id="resume" >
                 <!-- Work History --> 
                 <b>Work History</b>
                 <br>
@@ -165,10 +168,9 @@ layout: default
                 <!-- <p class="animate__animated animate__fadeInUp">Discovered Vulnerabilities</p> -->
                 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Vulnerability">
                 <br>
-                <small><i class="animate__animated animate__fadeIn animate__delay-1s">Click Title to Expand</i></small>
                 <br>
                     <ul id="myUL">
-                        <div style="text-align: left;" class="animate__animated animate__fadeInUp animate__delay-1s">
+                        <div style="text-align: left;">
                             {% for vuln in site.data.vulns %}
                                     <li>
                                         <div class="highlight-nz check-border"  onclick="goToPost('{{vuln.id}}');">
@@ -182,19 +184,19 @@ layout: default
                                     <span style="display: none;text-align: left;" id="{{vuln.id}}">
                                         <small>
                                             {% if vuln.blog %}
-                                            <a class="zoom muted highlight" style="text-decoration:none;" href="{{vuln.Report}}"><i class="fas fa-book"></i> Blog</a> |
+                                            <a class="zoom muted highlight" style="text-decoration:none;" href="{{vuln.Report}}"><i class="fas fa-book"></i> Blog</a> 
                                             {% endif %}
                                             {% if vuln.Report %}
-                                            <a class="muted highlight" style="text-decoration:none;" href="{{vuln.Report}}"><i class="far fa-file-pdf"></i>  Report</a> |
+                                            <a class="muted highlight" style="text-decoration:none;" href="{{vuln.Report}}"><i class="far fa-file-pdf"></i>  Report</a> 
                                             {% endif %}
                                             {% if vuln.Communication %}
-                                            <a class="muted highlight"style="text-decoration:none;"  href="{{vuln.Communication}}"><i class="fas fa-link"></i>  Communication</a> |
+                                            <a class="muted highlight"style="text-decoration:none;"  href="{{vuln.Communication}}"><i class="fas fa-link"></i>  Communication</a> 
                                             {% endif %}
                                             {% if vuln.vendor-advisory %}
-                                            <a class="muted highlight" style="text-decoration:none;" href="{{vuln.vendor-advisory}}"><i class="fas fa-link"></i>  Advisory </a> |
+                                            <a class="muted highlight" style="text-decoration:none;" href="{{vuln.vendor-advisory}}"><i class="fas fa-link"></i>  Advisory </a> 
                                             {% endif %}
                                             {% if vuln.CVE-AD %}
-                                            <a class="muted highlight"  style="text-decoration:none;" href="{{vuln.CVE-AD}}"><i class="fas fa-shield-alt"></i>  CVE </a> |
+                                            <a class="muted highlight"  style="text-decoration:none;" href="{{vuln.CVE-AD}}"><i class="fas fa-shield-alt"></i>  CVE </a> 
                                             {% endif %}
                                             {% if vuln.exploit-db %}
                                             <a class="muted highlight"  style="text-decoration:none;" href="{{vuln.exploit-db}}"><i class="fas fa-spider"></i>  Exploit-DB </a>
@@ -228,7 +230,7 @@ layout: default
             <!-- start blog section -->
             <div style="display:none;" id="blog">
             <!-- <p class="animate__animated animate__fadeInUp">Discovered Vulnerabilities</p> -->
-                <div style="text-align: left;" class="animate__animated animate__fadeInUp animate__delay-1s">
+                <div style="text-align: left;" >
                     {% for post in site.posts %}
                         <div class="check-border" onclick="goToPost('{{vuln.id}}');">
                             <a class="highlight-nz" href="{{post.url}}" style="text-decoration: none;">{{post.title}}</a>
@@ -254,7 +256,7 @@ layout: default
                 </div>
                 <br>
                 <br>
-                <div class="animate__animated animate__fadeIn animate__delay-2s">
+                <div >
                     <a href="https://twitter.com/tbutler0x90"><i class="fab fa-twitter"></i></a>
                     <a href="https://www.linkedin.com/in/tyler-b-a700a1aa/"><i class="fab fa-linkedin"></i></a>
                     <a href="https://github.com/tcbutler320"><i class="fab fa-github"></i></a>
@@ -262,7 +264,7 @@ layout: default
                 </div>  
                 <br>
                 <br>
-                <div class="animate__animated animate__fadeIn animate__delay-3s" >
+                <div>
                     <!-- <small>Interested in this Jekyll theme? I open sourced it, check it out <a href="https://github.com/tcbutler320/simple.dev.tbutler.org">here</a></small>  -->
                 </div>
             </div>
@@ -271,7 +273,7 @@ layout: default
             <!-- start contact section -->
             <div style="display:none;" id="contact" class="center">
                 <!-- <p class="animate__animated animate__fadeInUp">contact me</p> -->
-                <form name="contact" method="POST" data-netlify="true" class="animate__animated animate__fadeInUp animate__delay-1s">
+                <form name="contact" method="POST" data-netlify="true" >
                     <p>
                     <label>name:  <input type="text" name="name" placeholder="foo"/></label>   
                     </p>
